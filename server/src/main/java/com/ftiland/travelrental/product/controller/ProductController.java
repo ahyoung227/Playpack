@@ -1,12 +1,14 @@
 package com.ftiland.travelrental.product.controller;
 
+import com.ftiland.travelrental.common.utils.pagination.PageResponseDto;
 import com.ftiland.travelrental.image.service.ImageService;
 import com.ftiland.travelrental.product.dto.*;
 import com.ftiland.travelrental.product.entity.Product;
-import com.ftiland.travelrental.product.helper.FeaturedProductsHelper;
+import com.ftiland.travelrental.product.mapper.ProductMapper;
 import com.ftiland.travelrental.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -90,9 +92,16 @@ public class ProductController {
         List<Product> top3ByBaseFeeZero = productService.getTop3ByBaseFeeZero(0);
 
         FeaturedProductsResponseDto responseDTO =
-                FeaturedProductsHelper.createFeaturedProductsResponseDto(top3ByViewCount, top3ByTotalRateScoreRatio, top3ByBaseFeeZero);
+                ProductMapper.createFeaturedProductsResponseDto(top3ByViewCount, top3ByTotalRateScoreRatio, top3ByBaseFeeZero);
 
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    ResponseEntity<PageResponseDto> searchProducts(@RequestParam String keyword, @RequestParam int page, @RequestParam int size) {
+        Page<Product> searchResults = productService.searchProduct(keyword, page, size);
+        PageResponseDto response = ProductMapper.createPageResponseDto(searchResults);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     private void countView(String productId, HttpServletRequest request, HttpServletResponse response) {

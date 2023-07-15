@@ -165,4 +165,9 @@ public class ProductService {
     public List<Product> getTop3ByBaseFeeZero(int baseFee) {
         return productRepository.findTop3ByBaseFeeOrderByCreatedAtDesc(0);
     }
+
+    public Page<Product> searchProduct(String keyword, int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return productRepository.findByTitleIgnoreCaseContainingOrContentIgnoreCaseContaining(keyword, keyword, pageRequest);
+    }
 }

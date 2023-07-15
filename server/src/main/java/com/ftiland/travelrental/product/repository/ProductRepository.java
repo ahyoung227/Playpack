@@ -20,4 +20,6 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     List<Product> findTop3ByOrderByTotalRateScoreRatioDesc(Pageable pageable);
 
     List<Product> findTop3ByBaseFeeOrderByCreatedAtDesc(Integer baseFee);
+
+    Page<Product> findByTitleIgnoreCaseContainingOrContentIgnoreCaseContaining(String titleKeyword, String contentKeyword, Pageable pageable);
 }
