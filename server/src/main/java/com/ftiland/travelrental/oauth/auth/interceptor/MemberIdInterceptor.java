@@ -1,6 +1,6 @@
 package com.ftiland.travelrental.oauth.auth.interceptor;
 
-import com.ftiland.travelrental.common.utils.MemberAuthUtils;
+import com.ftiland.travelrental.common.utils.auth.MemberAuthUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;

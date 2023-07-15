@@ -55,7 +55,7 @@ public class InterestService {
 
 
     // 한 사용자의 관심 목록
-    public InterestDto.ResponsesDto  findInterest(Long memberId,int page,int size){
+    public InterestDto.ResponsesDto findInterest(Long memberId,int page,int size){
 
         // 맴버 존재하는지 검사
         memberService.findMember(memberId);

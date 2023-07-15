@@ -1,4 +1,4 @@
-package com.ftiland.travelrental.common.utils;
+package com.ftiland.travelrental.common.utils.auth;
 
 import com.ftiland.travelrental.common.exception.BusinessLogicException;
 import com.ftiland.travelrental.common.exception.ExceptionCode;

@@ -1,6 +1,6 @@
 package com.ftiland.travelrental.reservation.dto;
 
-import com.ftiland.travelrental.common.PageInfo;
+import com.ftiland.travelrental.common.utils.pagination.PageInfo;
 import com.ftiland.travelrental.reservation.entity.Reservation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

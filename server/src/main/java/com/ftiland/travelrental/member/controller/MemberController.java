@@ -1,6 +1,6 @@
 package com.ftiland.travelrental.member.controller;
 
-import com.ftiland.travelrental.common.utils.MemberAuthUtils;
+import com.ftiland.travelrental.common.utils.auth.MemberAuthUtils;
 import com.ftiland.travelrental.member.dto.MemberDto;
 import com.ftiland.travelrental.member.dto.MemberPatchDto;
 import com.ftiland.travelrental.member.entity.Member;
