@@ -1,4 +1,4 @@
-package com.ftiland.travelrental.common;
+package com.ftiland.travelrental.common.utils.pagination;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
